@@ -28,12 +28,13 @@ SECRETS = secrets.getter(os.path.join(DATA_DIR, 'secrets.json'))
 SECRET_KEY = SECRETS['secret_key']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG') == 'True'
-
+# DEBUG = os.environ.get('DEBUG') == 'True'
+DEBUG = True
 from socket import gethostname
 ALLOWED_HOSTS = [
-    gethostname(), # For internal OpenShift load balancer security purposes.
-    os.environ.get('OPENSHIFT_APP_DNS'), # Dynamically map to the OpenShift gear name.
+    '*'
+    # gethostname(), # For internal OpenShift load balancer security purposes.
+    # os.environ.get('OPENSHIFT_APP_DNS'), # Dynamically map to the OpenShift gear name.
     #'example.com', # First DNS alias (set up in the app)
     #'www.example.com', # Second DNS alias (set up in the app)
 ]
@@ -87,14 +88,16 @@ WSGI_APPLICATION = 'myproject.wsgi.application'
 
 DATABASES = {
     'default': {
+        # 'NAME': os.path.join(DATA_DIR, 'db.sqlite3'),
         'ENGINE': 'django.db.backends.mysql',
+        # 'ENGINE': 'django.db.backends.sqlite3',
         # GETTING-STARTED: change 'db.sqlite3' to your sqlite3 database:
         # 'NAME': os.path.join(DATA_DIR, 'db.sqlite3'),
         'NAME': 'django',
         # The following settings are not used with sqlite3:
         'USER': 'adminS1mVKcM',
         'PASSWORD': 'Vc6u5iZCKnhQ',
-        'HOST': '127.0.0.1',                 # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
+        'HOST': '127.6.120.130',                 # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
         'PORT': '3306',                      # Set to empty string for default.
     }
 }
