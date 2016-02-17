@@ -49,6 +49,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'ssacount',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -93,11 +94,11 @@ DATABASES = {
         # 'ENGINE': 'django.db.backends.sqlite3',
         # GETTING-STARTED: change 'db.sqlite3' to your sqlite3 database:
         # 'NAME': os.path.join(DATA_DIR, 'db.sqlite3'),
-        'NAME': 'django',
+        'NAME': 'djangopy',
         # The following settings are not used with sqlite3:
-        'USER': 'adminS1mVKcM',
-        'PASSWORD': 'Vc6u5iZCKnhQ',
-        'HOST': '127.0.0.1',                 # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
+        'USER': 'djangopy',
+        'PASSWORD': '900306',
+        'HOST': 'db4free.net',                 # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
         'PORT': '3306',                      # Set to empty string for default.
     }
 }
