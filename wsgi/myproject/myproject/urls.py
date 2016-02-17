@@ -18,6 +18,6 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^$', 'ssacount.views.index'),
-    url(r'^(?P<my_args>\d+)/$', 'ssacount.views.detail' , name = 'detail'),
+    url(r'^', include('ssacount.urls')),
+    # url(r'^(?P<my_args>\d+)/$', include('ssacount.urls') , name = 'detail'),
 ]
