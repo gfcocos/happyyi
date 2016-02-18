@@ -90,15 +90,24 @@ WSGI_APPLICATION = 'myproject.wsgi.application'
 DATABASES = {
     'default': {
         # 'NAME': os.path.join(DATA_DIR, 'db.sqlite3'),
-        'ENGINE': 'django.db.backends.mysql',
-        # 'ENGINE': 'django.db.backends.sqlite3',
         # GETTING-STARTED: change 'db.sqlite3' to your sqlite3 database:
+        # 'ENGINE': 'django.db.backends.sqlite3',
         # 'NAME': os.path.join(DATA_DIR, 'db.sqlite3'),
-        'NAME': 'djangopy',
-        # The following settings are not used with sqlite3:
-        'USER': 'djangopy',
-        'PASSWORD': '900306',
-        'HOST': 'db4free.net',                 # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
+
+        ##################################MySql############################################
+        'ENGINE': 'django.db.backends.mysql',
+        # The following settings for mysql db4free.net:
+        # 'NAME': 'djangopy',
+        # 'USER': 'djangopy',
+        # 'PASSWORD': '900306',
+        # 'HOST': 'db4free.net',                 # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
+        # 'PORT': '3306',                      # Set to empty string for default.
+        
+        # The following settings for mysql db4free.net:
+        'NAME': 'sql6107281',
+        'USER': 'sql6107281',
+        'PASSWORD': 'CpqnqFYWld',
+        'HOST': 'sql6.freemysqlhosting.net',                 # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
         'PORT': '3306',                      # Set to empty string for default.
     }
 }
