@@ -12,6 +12,11 @@ def detail(request, my_args):
 
 
 def acounts(request):
-    acount = SSAcount.objects.get(id=1)
-    output = ('{ "local_port": %s, "method": "%s", "password": "%s", "server": "%s", "server_port": "%s"}' % (1080, acount.method, acount.password, acount.server, acount.server_port))
-    return HttpResponse(output)
+    acounts = SSAcount.objects.order_by('ping')
+    if len(acounts) > 0:
+        acount = acounts[0]
+        output = ('{ "local_port": %s, "method": "%s", "password": "%s", "server": "%s", "server_port": "%s"}' % (1080, acount.method, acount.password, acount.server, acount.server_port))
+        return HttpResponse(output)
+    else:
+        return HttpResponse('Error,No Data')
+    # acount = acounts.

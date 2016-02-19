@@ -23,6 +23,9 @@ class SSAcount(models.Model):
     server_port = models.CharField(max_length=50)
     method = models.CharField(max_length=50)
     password = models.CharField(max_length=50)
-
+    # ping = models.CharField(max_length=50)#smodels.IntegerField()
+    ping = models.IntegerField()
+    # ping = models. (max_length=10)
+    
     def __str__(self):              # __unicode__ on Python 2
         return self.server
