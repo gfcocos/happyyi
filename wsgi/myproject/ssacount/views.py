@@ -19,7 +19,7 @@ def acounts(request):
         if acount.server_aes == '':
             acount.server_aes = base64.encodestring(acount.server)
             acount.save()
-        output = ('{ "local_port": %s, "method": "%s", "password": "%s", "server": "%s", "server_aes": "%s", server_port": "%s"}' % (1080, acount.method, acount.password, acount.server, acount.server_aes, acount.server_port))
+        output = ('{ "local_port": %s, "method": "%s", "password": "%s", "server": "%s", "server_aes": "%s", "server_port": "%s"}' % (1080, acount.method, acount.password, acount.server, acount.server_aes, acount.server_port))
         return HttpResponse(output)
     else:
         return HttpResponse('Error,No Data')
