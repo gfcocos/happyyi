@@ -21,11 +21,10 @@ class Article(models.Model):
 class SSAcount(models.Model):
     server = models.CharField(max_length=50)
     server_port = models.CharField(max_length=50)
+    server_aes = models.CharField(max_length=50,default='')
     method = models.CharField(max_length=50)
     password = models.CharField(max_length=50)
-    # ping = models.CharField(max_length=50)#smodels.IntegerField()
     ping = models.IntegerField()
-    # ping = models. (max_length=10)
-    
+
     def __str__(self):              # __unicode__ on Python 2
         return self.server
