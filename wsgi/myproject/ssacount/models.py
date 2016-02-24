@@ -21,7 +21,7 @@ class Article(models.Model):
 class SSAcount(models.Model):
     server = models.CharField(max_length=50)
     server_port = models.CharField(max_length=50)
-    server_aes = models.CharField(max_length=50,default='')
+    server_aes = models.CharField(max_length=50,default='',blank=True)
     method = models.CharField(max_length=50)
     password = models.CharField(max_length=50)
     ping = models.IntegerField()
