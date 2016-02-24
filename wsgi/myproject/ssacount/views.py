@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from django.contrib.auth.hashers import make_password, check_password
+from django.core.signing import Signer
 from .models import SSAcount
-
+import base64
 # Create your views here.
 def index(request):
     return HttpResponse("Hello World, Django")
@@ -17,7 +17,8 @@ def acounts(request):
     if len(acounts) > 0:
         acount = acounts[0]
         if acount.server_aes == '':
-            acount.server_aes = make_password(acount.server,'shadow','pbkdf2_sha256')
+            acount.server_aes = base64.encodestring(acount.server)
+            acount.save()
         output = ('{ "local_port": %s, "method": "%s", "password": "%s", "server": "%s", "server_aes": "%s", server_port": "%s"}' % (1080, acount.method, acount.password, acount.server, acount.server_aes, acount.server_port))
         return HttpResponse(output)
     else:
